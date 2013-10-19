@@ -1,0 +1,38 @@
+
+
+// ---- Set up variables ----
+
+@dark-blue: #1e718b;	
+@blue:      #2ba6ca; 
+@dark-gray: #222222;
+@green:     #8fdc21;
+
+
+// ---- Mixins ----
+
+.vertical-padding {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.left {float: left;}
+
+
+// ---- Declarations ----
+
+body {
+	background-color: @dark-gray;
+	color: #FFFFFF;
+}
+
+a {
+	color: #FFFFFF;
+}
+
+.navbar {margin-top: 30px;}
+
+.common-header {
+	width:100%;
+	background-color: @dark-blue;
+	.vertical-padding;
+}
