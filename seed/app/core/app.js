@@ -18,6 +18,12 @@ define(['angular', 'ngRoute', 'ngSanitize', 'ngBootstrap'], function (angular, n
 
 	});
 
+	TheApp.controller("AppCtrl", function ($scope, $log, $q, $timeout) {
+
+    	console.log("AppCtrl working");
+
+    });
+
 	return TheApp;
 
 });

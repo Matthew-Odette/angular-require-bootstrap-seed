@@ -67,6 +67,8 @@ require(
 		'core/header'
 	], 
 	function (angular) {
+		var AppRoot = angular.element(document.getElementById('ng-app'));
+		AppRoot.attr('ng-controller','AppCtrl');
 		angular.bootstrap(document, ['TheApp']);
 	}
 );
