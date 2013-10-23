@@ -7,16 +7,20 @@ require.config({
 		jquery     :  ['https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min',
 				       '../lib/jquery.min.1.10.1'],
 
-		angular    : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.min',
-				      '../lib/angular.min.1.2.0-rc.2'],
-		ngRoute    : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-route.min',
-				      '../lib/angular-route.min.1.2.0-rc.2'],
-		ngCookies  : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-cookies.min',
-				      '../lib/angular-cookies.min.1.2.0-rc.2'],  
-		ngAnimate  : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-animate.min',
-				      '../lib/angular-animate.min.1.2.0-rc.2'], 
-		ngSanitize : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-sanitize.min',
-					  '../lib/angular-sanitize.min.1.2.0-rc.2'],
+		angular    : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular.min',
+				      '../lib/angular.min.1.2.0-rc.3'],
+		ngAnimate  : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular-animate.min',
+				      '../lib/angular-animate.min.1.2.0-rc.3'],
+		ngCookies  : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular-cookies.min',
+				      '../lib/angular-cookies.min.1.2.0-rc.3'],
+		ngResource : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular-resource.min',
+				      '../lib/angular-resource.min.1.2.0-rc.3'],
+		ngRoute    : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular-route.min',
+				      '../lib/angular-route.min.1.2.0-rc.3'],
+		ngSanitize : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular-sanitize.min',
+					  '../lib/angular-sanitize.min.1.2.0-rc.3'],
+		ngTouch    : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular-touch.min',
+					  '../lib/angular-touch.min.1.2.0-rc.3'],
 
         // From http://angular-ui.github.io/bootstrap/ 
         // --Boostrap 3 port is still incomplete
@@ -28,25 +32,35 @@ require.config({
 		jquery: {
 			exports: '$'
 		},
+
 		angular: {
 			exports: 'angular',
 		},
-		ngRoute: {
-			exports: 'ngRoute',
+		ngAnimate: {
+			exports: 'ngAnimate',
 			deps: ['angular']
 		},
 		ngCookies: {
 			exports: 'ngCookies',
 			deps: ['angular']
 		},
-		ngAnimate: {
-			exports: 'ngAnimate',
+		ngResource: {
+			exports: 'ngResource',
+			deps: ['angular']
+		},
+		ngRoute: {
+			exports: 'ngRoute',
 			deps: ['angular']
 		},
 		ngSanitize: {
 			exports: 'ngSanitize',
 			deps: ['angular']
 		},
+		ngTouch: {
+			exports: 'ngTouch',
+			deps: ['angular']
+		},
+
 		ngBootstrap: {
 			exports: 'ngBootstrap',
 			deps: ['angular']
