@@ -1,7 +1,8 @@
 //angular.module("ui.bootstrap", ["ui.bootstrap.tpls", "ui.bootstrap.transition","ui.bootstrap.collapse","ui.bootstrap.accordion","ui.bootstrap.alert","ui.bootstrap.bindHtml","ui.bootstrap.buttons","ui.bootstrap.carousel","ui.bootstrap.position","ui.bootstrap.datepicker","ui.bootstrap.dropdownToggle","ui.bootstrap.modal","ui.bootstrap.pagination","ui.bootstrap.tooltip","ui.bootstrap.popover","ui.bootstrap.progressbar","ui.bootstrap.rating","ui.bootstrap.tabs","ui.bootstrap.timepicker"]);
-angular.module("ui.bootstrap", ["ui.bootstrap.tpls", "ui.bootstrap.transition", "ui.bootstrap.collapse", "ui.bootstrap.modal"]);
+angular.module("ui.bootstrap", ["ui.bootstrap.tpls", "ui.bootstrap.transition", "ui.bootstrap.collapse", "'ui.bootstrap.accordion", "ui.bootstrap.modal"]);
 //angular.module("ui.bootstrap.tpls", ["template/accordion/accordion-group.html","template/accordion/accordion.html","template/alert/alert.html","template/carousel/carousel.html","template/carousel/slide.html","template/datepicker/datepicker.html","template/datepicker/popup.html","template/modal/backdrop.html","template/modal/window.html","template/pagination/pager.html","template/pagination/pagination.html","template/tooltip/tooltip-html-unsafe-popup.html","template/tooltip/tooltip-popup.html","template/popover/popover.html","template/progressbar/bar.html","template/progressbar/progress.html","template/rating/rating.html","template/tabs/tab.html","template/tabs/tabset-titles.html","template/tabs/tabset.html","template/timepicker/timepicker.html"]);
 angular.module("ui.bootstrap.tpls", ["template/modal/backdrop.html","template/modal/window.html"]);
+
 
 angular.module('ui.bootstrap.transition', [])
 
@@ -185,6 +186,8 @@ angular.module('ui.bootstrap.collapse',['ui.bootstrap.transition'])
   };
 }]);
 
+
+// 3.0 done
 angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse'])
 
 .constant('accordionConfig', {
@@ -326,6 +329,8 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse'])
     }
   };
 });
+
+
 
 angular.module("ui.bootstrap.alert", []).directive('alert', function () {
   return {
@@ -2995,16 +3000,21 @@ angular.module('ui.bootstrap.timepicker', [])
 
 angular.module("template/accordion/accordion-group.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("template/accordion/accordion-group.html",
-    "<div class=\"accordion-group\">\n" +
-    "  <div class=\"accordion-heading\" ><a class=\"accordion-toggle\" ng-click=\"isOpen = !isOpen\" accordion-transclude=\"heading\">{{heading}}</a></div>\n" +
-    "  <div class=\"accordion-body\" collapse=\"!isOpen\">\n" +
-    "    <div class=\"accordion-inner\" ng-transclude></div>  </div>\n" +
+    "<div class=\"panel panel-default\">" +
+    "  <div class=\"panel-heading\">" +
+    "    <h4 class=\"panel-title\">" +
+    "      <a href=\"\" class=\"accordion-toggle\" ng-click=\"isOpen = !isOpen\" accordion-transclude=\"heading\">{{heading}}</a>" +
+    "    </h4>" +
+    "  </div>" +
+    "  <div class=\"panel-collapse\" collapse=\"!isOpen\">" +
+    "          <div class=\"panel-body\" ng-transclude></div>" +
+    "  </div>" +
     "</div>");
 }]);
 
 angular.module("template/accordion/accordion.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("template/accordion/accordion.html",
-    "<div class=\"accordion\" ng-transclude></div>");
+    "<div class=\"panel-group\" ng-transclude></div>");
 }]);
 
 angular.module("template/alert/alert.html", []).run(["$templateCache", function($templateCache) {
