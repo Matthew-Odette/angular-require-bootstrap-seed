@@ -1,7 +1,7 @@
 //angular.module("ui.bootstrap", ["ui.bootstrap.tpls", "ui.bootstrap.transition","ui.bootstrap.collapse","ui.bootstrap.accordion","ui.bootstrap.alert","ui.bootstrap.bindHtml","ui.bootstrap.buttons","ui.bootstrap.carousel","ui.bootstrap.position","ui.bootstrap.datepicker","ui.bootstrap.dropdownToggle","ui.bootstrap.modal","ui.bootstrap.pagination","ui.bootstrap.tooltip","ui.bootstrap.popover","ui.bootstrap.progressbar","ui.bootstrap.rating","ui.bootstrap.tabs","ui.bootstrap.timepicker"]);
-angular.module("ui.bootstrap", ["ui.bootstrap.tpls", "ui.bootstrap.transition", "ui.bootstrap.collapse", "'ui.bootstrap.accordion", "ui.bootstrap.modal", "ui.bootstrap.alert", "ui.bootstrap.bindHtml", "ui.bootstrap.buttons"]);
+angular.module("ui.bootstrap", ["ui.bootstrap.tpls", "ui.bootstrap.transition", "ui.bootstrap.collapse", "ui.bootstrap.accordion", "ui.bootstrap.modal", "ui.bootstrap.alert", "ui.bootstrap.bindHtml", "ui.bootstrap.buttons", "ui.bootstrap.carousel"]);
 //angular.module("ui.bootstrap.tpls", ["template/accordion/accordion-group.html","template/accordion/accordion.html","template/alert/alert.html","template/carousel/carousel.html","template/carousel/slide.html","template/datepicker/datepicker.html","template/datepicker/popup.html","template/modal/backdrop.html","template/modal/window.html","template/pagination/pager.html","template/pagination/pagination.html","template/tooltip/tooltip-html-unsafe-popup.html","template/tooltip/tooltip-popup.html","template/popover/popover.html","template/progressbar/bar.html","template/progressbar/progress.html","template/rating/rating.html","template/tabs/tab.html","template/tabs/tabset-titles.html","template/tabs/tabset.html","template/timepicker/timepicker.html"]);
-angular.module("ui.bootstrap.tpls", ["template/accordion/accordion-group.html", "template/accordion/accordion.html", "template/modal/backdrop.html","template/modal/window.html", "template/alert/alert.html"]);
+angular.module("ui.bootstrap.tpls", ["template/accordion/accordion-group.html", "template/accordion/accordion.html", "template/modal/backdrop.html","template/modal/window.html", "template/alert/alert.html", "template/carousel/carousel.html", "template/carousel/slide.html"]);
 
 
 angular.module('ui.bootstrap.transition', [])
@@ -766,6 +766,8 @@ function CarouselDemoCtrl($scope) {
   };
 }]);
 
+
+
 angular.module('ui.bootstrap.position', [])
 
 /**
@@ -845,6 +847,8 @@ angular.module('ui.bootstrap.position', [])
       }
     };
   }]);
+
+
 
 angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.position'])
 
@@ -3042,21 +3046,21 @@ angular.module("template/carousel/carousel.html", []).run(["$templateCache", fun
     "        <li ng-repeat=\"slide in slides()\" ng-class=\"{active: isActive(slide)}\" ng-click=\"select(slide)\"></li>\n" +
     "    </ol>\n" +
     "    <div class=\"carousel-inner\" ng-transclude></div>\n" +
-    "    <a ng-click=\"prev()\" class=\"carousel-control left\" ng-show=\"slides().length > 1\">&lsaquo;</a>\n" +
-    "    <a ng-click=\"next()\" class=\"carousel-control right\" ng-show=\"slides().length > 1\">&rsaquo;</a>\n" +
+    "    <a class=\"left carousel-control\" ng-click=\"prev()\" ng-show=\"slides().length > 1\"><span class=\"icon-prev\"></span></a>\n" +
+    "    <a class=\"right carousel-control\" ng-click=\"next()\" ng-show=\"slides().length > 1\"><span class=\"icon-next\"></span></a>\n" +
     "</div>\n" +
     "");
 }]);
 
 angular.module("template/carousel/slide.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("template/carousel/slide.html",
-    "<div ng-class=\"{\n" +
-    "    'active': leaving || (active && !entering),\n" +
-    "    'prev': (next || active) && direction=='prev',\n" +
-    "    'next': (next || active) && direction=='next',\n" +
-    "    'right': direction=='prev',\n" +
-    "    'left': direction=='next'\n" +
-    "  }\" class=\"item\" ng-transclude></div>\n" +
+    "<div ng-class=\"{ \n" +
+    "    'active': leaving || (active && !entering), \n" +
+    "    'prev': (next || active) && direction=='prev', \n" +
+    "    'next': (next || active) && direction=='next', \n" +
+    "    'right': direction=='prev', \n" +
+    "    'left': direction=='next' \n" +
+    "}\" class=\"item text-center\" ng-transclude></div> \n" +
     "");
 }]);
 
