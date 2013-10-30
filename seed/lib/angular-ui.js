@@ -1,7 +1,7 @@
 //angular.module("ui.bootstrap", ["ui.bootstrap.tpls", "ui.bootstrap.transition","ui.bootstrap.collapse","ui.bootstrap.accordion","ui.bootstrap.alert","ui.bootstrap.bindHtml","ui.bootstrap.buttons","ui.bootstrap.carousel","ui.bootstrap.position","ui.bootstrap.datepicker","ui.bootstrap.dropdownToggle","ui.bootstrap.modal","ui.bootstrap.pagination","ui.bootstrap.tooltip","ui.bootstrap.popover","ui.bootstrap.progressbar","ui.bootstrap.rating","ui.bootstrap.tabs","ui.bootstrap.timepicker"]);
-angular.module("ui.bootstrap", ["ui.bootstrap.tpls", "ui.bootstrap.transition", "ui.bootstrap.collapse", "ui.bootstrap.accordion", "ui.bootstrap.modal", "ui.bootstrap.alert", "ui.bootstrap.bindHtml", "ui.bootstrap.buttons", "ui.bootstrap.carousel", "ui.bootstrap.position"]);
+angular.module("ui.bootstrap", ["ui.bootstrap.tpls", "ui.bootstrap.transition", "ui.bootstrap.collapse", "ui.bootstrap.accordion", "ui.bootstrap.modal", "ui.bootstrap.alert", "ui.bootstrap.bindHtml", "ui.bootstrap.buttons", "ui.bootstrap.carousel", "ui.bootstrap.position", "ui.bootstrap.datepicker"]);
 //angular.module("ui.bootstrap.tpls", ["template/accordion/accordion-group.html","template/accordion/accordion.html","template/alert/alert.html","template/carousel/carousel.html","template/carousel/slide.html","template/datepicker/datepicker.html","template/datepicker/popup.html","template/modal/backdrop.html","template/modal/window.html","template/pagination/pager.html","template/pagination/pagination.html","template/tooltip/tooltip-html-unsafe-popup.html","template/tooltip/tooltip-popup.html","template/popover/popover.html","template/progressbar/bar.html","template/progressbar/progress.html","template/rating/rating.html","template/tabs/tab.html","template/tabs/tabset-titles.html","template/tabs/tabset.html","template/timepicker/timepicker.html"]);
-angular.module("ui.bootstrap.tpls", ["template/accordion/accordion-group.html", "template/accordion/accordion.html", "template/modal/backdrop.html","template/modal/window.html", "template/alert/alert.html", "template/carousel/carousel.html", "template/carousel/slide.html"]);
+angular.module("ui.bootstrap.tpls", ["template/accordion/accordion-group.html", "template/accordion/accordion.html", "template/modal/backdrop.html","template/modal/window.html", "template/alert/alert.html", "template/carousel/carousel.html", "template/carousel/slide.html", "template/datepicker/datepicker.html", "template/datepicker/popup.html"]);
 
 
 angular.module('ui.bootstrap.transition', [])
@@ -433,7 +433,7 @@ angular.module('ui.bootstrap.buttons', [])
 }]);
 
 
-
+// 3.0 done
 /**
 * @ngdoc overview
 * @name ui.bootstrap.carousel
@@ -849,7 +849,7 @@ angular.module('ui.bootstrap.position', [])
 }]);
 
 
-
+// 3.0 done
 angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.position'])
 
 .constant('datepickerConfig', {
@@ -1297,6 +1297,9 @@ function ($compile, $parse, $document, $position, dateFilter, datepickerPopupCon
     }
   };
 }]);
+
+
+
 
 /*
  * dropdownToggle - Provides dropdown menu functionality in place of bootstrap js
@@ -3066,23 +3069,32 @@ angular.module("template/carousel/slide.html", []).run(["$templateCache", functi
 
 angular.module("template/datepicker/datepicker.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("template/datepicker/datepicker.html",
-    "<table>\n" +
-    "  <thead>\n" +
-    "    <tr class=\"text-center\">\n" +
-    "      <th><button type=\"button\" class=\"btn pull-left\" ng-click=\"move(-1)\"><i class=\"icon-chevron-left\"></i></button></th>\n" +
-    "      <th colspan=\"{{rows[0].length - 2 + showWeekNumbers}}\"><button type=\"button\" class=\"btn btn-block\" ng-click=\"toggleMode()\"><strong>{{title}}</strong></button></th>\n" +
-    "      <th><button type=\"button\" class=\"btn pull-right\" ng-click=\"move(1)\"><i class=\"icon-chevron-right\"></i></button></th>\n" +
+    "<table style=\"table-layout:fixed;\" class=\"table-condensed\">\n" +
+    "  <!-- secondary: last month, disabled: disabled -->\n" +
+    "  <thead class=\"text-center\">\n" +
+    "    <tr>\n" +
+    "      <th style=\"overflow: hidden; min-width: 26px\">\n" +
+    "        <button type=\"button\" class=\"btn btn-xs btn-link\" ng-click=\"move(-1)\"> \n" +
+    "          <span class=\"glyphicon glyphicon-chevron-left\"> </span> \n" +
+    "        </button>\n" +
+    "      </th>\n" +
+    "      <th colspan=\"{{rows[0].length - 2 + showWeekNumbers}}\"><button type=\"button\" class=\"btn btn-md btn-link btn-block\" ng-click=\"toggleMode()\"><strong>{{title}}</strong></button></th>\n" +
+    "      <th style=\"overflow: hidden; min-width: 26px\">\n" +
+    "        <button type=\"button\" class=\"btn btn-xs btn-link\" ng-click=\"move(1)\"> \n" +
+    "          <span class=\"glyphicon glyphicon-chevron-right\"> </span> \n" +
+    "        </button>\n" +
+    "      </th>\n" +
     "    </tr>\n" +
-    "    <tr class=\"text-center\" ng-show=\"labels.length > 0\">\n" +
-    "      <th ng-show=\"showWeekNumbers\">#</th>\n" +
-    "      <th ng-repeat=\"label in labels\">{{label}}</th>\n" +
+    "    <tr ng-show=\"labels.length > 0\">\n" +
+    "      <th class=\"text-center\" ng-show=\"showWeekNumbers\" style=\"overflow: hidden; min-width: 26px\"><h6>#</h6></th>\n" +
+    "      <th class=\"text-center\" ng-repeat=\"label in labels\" style=\"overflow: hidden; min-width: 26px\"><h6>{{label}}</h6></th>\n" +
     "    </tr>\n" +
     "  </thead>\n" +
     "  <tbody>\n" +
     "    <tr ng-repeat=\"row in rows\">\n" +
-    "      <td ng-show=\"showWeekNumbers\" class=\"text-center\"><em>{{ getWeekNumber(row) }}</em></td>\n" +
-    "      <td ng-repeat=\"dt in row\" class=\"text-center\">\n" +
-    "        <button type=\"button\" style=\"width:100%;\" class=\"btn\" ng-class=\"{'btn-info': dt.selected}\" ng-click=\"select(dt.date)\" ng-disabled=\"dt.disabled\"><span ng-class=\"{muted: dt.secondary}\">{{dt.label}}</span></button>\n" +
+    "      <td ng-show=\"showWeekNumbers\" class=\"text-center\" style=\"overflow: hidden; min-width: 26px\"><button type=\"button\" class=\"btn btn-xs btn-link\" disabled><strong><em>{{ getWeekNumber(row) }}</em></strong></button></td>\n" +
+    "      <td ng-repeat=\"dt in row\" class=\"text-center\" style=\"overflow: hidden; min-width: 26px\">\n" +
+    "        <button type=\"button\" style=\"width: 100%; border: 0px\" class=\"btn btn-xs\" ng-class=\"{'btn-primary': dt.selected, 'btn-default': !dt.selected}\" ng-click=\"select(dt.date)\" ng-disabled=\"dt.disabled\"><span ng-class=\"{'text-muted': dt.secondary && !dt.selected}\">{{dt.label}}</span></button>\n" +
     "      </td>\n" +
     "    </tr>\n" +
     "  </tbody>\n" +
@@ -3093,17 +3105,18 @@ angular.module("template/datepicker/datepicker.html", []).run(["$templateCache",
 angular.module("template/datepicker/popup.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("template/datepicker/popup.html",
     "<ul class=\"dropdown-menu\" ng-style=\"{display: (isOpen && 'block') || 'none', top: position.top+'px', left: position.left+'px'}\" class=\"dropdown-menu\">\n" +
-    " <li ng-transclude></li>\n" +
-    " <li class=\"divider\"></li>\n" +
-    " <li style=\"padding: 9px;\">\n" +
-    "   <span class=\"btn-group\">\n" +
-    "     <button class=\"btn btn-small btn-inverse\" ng-click=\"today()\">Today</button>\n" +
-    "     <button class=\"btn btn-small btn-info\" ng-click=\"showWeeks = ! showWeeks\" ng-class=\"{active: showWeeks}\">Weeks</button>\n" +
-    "     <button class=\"btn btn-small btn-danger\" ng-click=\"clear()\">Clear</button>\n" +
-    "   </span>\n" +
-    "   <button class=\"btn btn-small btn-success pull-right\" ng-click=\"isOpen = false\">Close</button>\n" +
-    " </li>\n" +
-    "</ul>");
+    "  <li ng-transclude></li>\n" +
+    "  <li class=\"divider\"></li>\n" +
+    "  <li style=\"padding: 9px;\">\n" +
+    "    <span class=\"btn-group\">\n" +
+    "      <button class=\"btn btn-xs btn-default\" ng-click=\"today()\">Today</button>\n" +
+    "      <button class=\"btn btn-xs btn-info\" ng-click=\"showWeeks = ! showWeeks\" ng-class=\"{active: showWeeks}\">Weeks</button>\n" +
+    "      <button class=\"btn btn-xs btn-danger\" ng-click=\"clear()\">Clear</button>\n" +
+    "    </span>\n" +
+    "    <button class=\"btn btn-xs btn-success pull-right\" ng-click=\"isOpen = false\">Close</button>\n" +
+    "  </li>\n" +
+    "</ul>\n" +
+    "");
 }]);
 
 angular.module("template/modal/backdrop.html", []).run(["$templateCache", function($templateCache) {
