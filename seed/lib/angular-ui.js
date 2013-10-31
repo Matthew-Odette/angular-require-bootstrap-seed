@@ -1300,7 +1300,7 @@ function ($compile, $parse, $document, $position, dateFilter, datepickerPopupCon
 
 
 
-
+// 3.0 done
 /*
  * dropdownToggle - Provides dropdown menu functionality in place of bootstrap js
  * @restrict class or attribute
