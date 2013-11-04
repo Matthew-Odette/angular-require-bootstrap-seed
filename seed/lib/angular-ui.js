@@ -1,7 +1,7 @@
 //angular.module("ui.bootstrap", ["ui.bootstrap.tpls", "ui.bootstrap.transition","ui.bootstrap.collapse","ui.bootstrap.accordion","ui.bootstrap.alert","ui.bootstrap.bindHtml","ui.bootstrap.buttons","ui.bootstrap.carousel","ui.bootstrap.position","ui.bootstrap.datepicker","ui.bootstrap.dropdownToggle","ui.bootstrap.modal","ui.bootstrap.pagination","ui.bootstrap.tooltip","ui.bootstrap.popover","ui.bootstrap.progressbar","ui.bootstrap.rating","ui.bootstrap.tabs","ui.bootstrap.timepicker"]);
-angular.module("ui.bootstrap", ["ui.bootstrap.tpls", "ui.bootstrap.transition", "ui.bootstrap.collapse", "ui.bootstrap.accordion", "ui.bootstrap.modal", "ui.bootstrap.alert", "ui.bootstrap.bindHtml", "ui.bootstrap.buttons", "ui.bootstrap.carousel", "ui.bootstrap.position", "ui.bootstrap.datepicker", "ui.bootstrap.dropdownToggle", "ui.bootstrap.pagination", "ui.bootstrap.tooltip", "ui.bootstrap.popover", "ui.bootstrap.progressbar", "ui.bootstrap.rating"]);
+angular.module("ui.bootstrap", ["ui.bootstrap.tpls", "ui.bootstrap.transition", "ui.bootstrap.collapse", "ui.bootstrap.accordion", "ui.bootstrap.modal", "ui.bootstrap.alert", "ui.bootstrap.bindHtml", "ui.bootstrap.buttons", "ui.bootstrap.carousel", "ui.bootstrap.position", "ui.bootstrap.datepicker", "ui.bootstrap.dropdownToggle", "ui.bootstrap.pagination", "ui.bootstrap.tooltip", "ui.bootstrap.popover", "ui.bootstrap.progressbar", "ui.bootstrap.rating", "ui.bootstrap.tabs"]);
 //angular.module("ui.bootstrap.tpls", ["template/accordion/accordion-group.html","template/accordion/accordion.html","template/alert/alert.html","template/carousel/carousel.html","template/carousel/slide.html","template/datepicker/datepicker.html","template/datepicker/popup.html","template/modal/backdrop.html","template/modal/window.html","template/pagination/pager.html","template/pagination/pagination.html","template/tooltip/tooltip-html-unsafe-popup.html","template/tooltip/tooltip-popup.html","template/popover/popover.html","template/progressbar/bar.html","template/progressbar/progress.html","template/rating/rating.html","template/tabs/tab.html","template/tabs/tabset-titles.html","template/tabs/tabset.html","template/timepicker/timepicker.html"]);
-angular.module("ui.bootstrap.tpls", ["template/accordion/accordion-group.html", "template/accordion/accordion.html", "template/modal/backdrop.html","template/modal/window.html", "template/alert/alert.html", "template/carousel/carousel.html", "template/carousel/slide.html", "template/datepicker/datepicker.html", "template/datepicker/popup.html", "template/pagination/pager.html", "template/pagination/pagination.html", "template/tooltip/tooltip-html-unsafe-popup.html", "template/tooltip/tooltip-popup.html", "template/popover/popover.html", "template/progressbar/bar.html", "template/progressbar/progress.html", "template/rating/rating.html"]);
+angular.module("ui.bootstrap.tpls", ["template/accordion/accordion-group.html", "template/accordion/accordion.html", "template/modal/backdrop.html","template/modal/window.html", "template/alert/alert.html", "template/carousel/carousel.html", "template/carousel/slide.html", "template/datepicker/datepicker.html", "template/datepicker/popup.html", "template/pagination/pager.html", "template/pagination/pagination.html", "template/tooltip/tooltip-html-unsafe-popup.html", "template/tooltip/tooltip-popup.html", "template/popover/popover.html", "template/progressbar/bar.html", "template/progressbar/progress.html", "template/rating/rating.html", "template/tabs/tab.html", "template/tabs/tabset-titles.html", "template/tabs/tabset.html"]);
 
 
 angular.module('ui.bootstrap.transition', [])
@@ -2473,7 +2473,7 @@ angular.module('ui.bootstrap.rating', [])
 });
 
 
-
+// 3.0 done
 /**
  * @ngdoc overview
  * @name ui.bootstrap.tabs
@@ -2530,6 +2530,7 @@ function TabsetCtrl($scope, $element) {
  * Tabset is the outer container for the tabs directive
  *
  * @param {boolean=} vertical Whether or not to use vertical styling for the tabs.
+ * @param {boolean=} justified Whether or not to use justified styling for the tabs.
  * @param {string=} direction  What direction the tabs should be rendered. Available:
  * 'right', 'left', 'below'.
  *
@@ -2537,13 +2538,17 @@ function TabsetCtrl($scope, $element) {
 <example module="ui.bootstrap">
   <file name="index.html">
     <tabset>
-      <tab heading="Vertical Tab 1"><b>First</b> Content!</tab>
-      <tab heading="Vertical Tab 2"><i>Second</i> Content!</tab>
+      <tab heading="Tab 1"><b>First</b> Content!</tab>
+      <tab heading="Tab 2"><i>Second</i> Content!</tab>
     </tabset>
     <hr />
     <tabset vertical="true">
       <tab heading="Vertical Tab 1"><b>First</b> Vertical Content!</tab>
       <tab heading="Vertical Tab 2"><i>Second</i> Vertical Content!</tab>
+    </tabset>
+    <tabset justified="true">
+      <tab heading="Justified Tab 1"><b>First</b> Justified Content!</tab>
+      <tab heading="Justified Tab 2"><i>Second</i> Justified Content!</tab>
     </tabset>
   </file>
 </example>
@@ -2560,6 +2565,7 @@ function TabsetCtrl($scope, $element) {
     compile: function(elm, attrs, transclude) {
       return function(scope, element, attrs, tabsetCtrl) {
         scope.vertical = angular.isDefined(attrs.vertical) ? scope.$parent.$eval(attrs.vertical) : false;
+        scope.justified = angular.isDefined(attrs.justified) ? scope.$parent.$eval(attrs.justified) : false;
         scope.type = angular.isDefined(attrs.type) ? scope.$parent.$eval(attrs.type) : 'tabs';
         scope.direction = angular.isDefined(attrs.direction) ? scope.$parent.$eval(attrs.direction) : 'top';
         scope.tabsAbove = (scope.direction != 'below');
@@ -2784,9 +2790,7 @@ function($parse, $http, $templateCache, $compile) {
       }
     }
   };
-}])
-
-;
+}]);
 
 
 angular.module('ui.bootstrap.timepicker', [])
@@ -3221,22 +3225,9 @@ angular.module("template/tabs/tab.html", []).run(["$templateCache", function($te
     "");
 }]);
 
-angular.module("template/tabs/tabs.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("template/tabs/tabs.html",
-    "<div class=\"tabbable\">\n" +
-    "  <ul class=\"nav nav-tabs\">\n" +
-    "    <li ng-repeat=\"pane in panes\" ng-class=\"{active:pane.selected}\">\n" +
-    "      <a ng-click=\"select(pane)\">{{pane.heading}}</a>\n" +
-    "    </li>\n" +
-    "  </ul>\n" +
-    "  <div class=\"tab-content\" ng-transclude></div>\n" +
-    "</div>\n" +
-    "");
-}]);
-
 angular.module("template/tabs/tabset-titles.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("template/tabs/tabset-titles.html",
-    "<ul class=\"nav {{type && 'nav-' + type}}\" ng-class=\"{'nav-stacked': vertical}\">\n" +
+    "<ul class=\"nav {{type && 'nav-' + type}}\" ng-class=\"{'nav-stacked': vertical, 'nav-justified': justified}\">\n" +
     "</ul>\n" +
     "");
 }]);
