@@ -73,7 +73,7 @@ require(
 	// Dependencies from lib
 		'angular', 
 		'ngRoute',
-		'../lib/less.min.1.3.3',  
+		'../lib/less.min.1.5.0',  
 	// Angular directives/controllers/services
 		'app',
 		'core/viewHomeController',
