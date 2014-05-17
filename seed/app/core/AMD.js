@@ -7,20 +7,20 @@ require.config({
 		jquery     :  ['https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min',
 				       '../lib/jquery.min.1.10.1'],
 
-		angular    : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min',
-				      '../lib/angular.min.1.2.0'],
-		ngAnimate  : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-animate.min',
-				      '../lib/angular-animate.min.1.2.0'],
-		ngCookies  : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-cookies.min',
-				      '../lib/angular-cookies.min.1.2.0'],
-		ngResource : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.min',
-				      '../lib/angular-resource.min.1.2.0'],
-		ngRoute    : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-route.min',
-				      '../lib/angular-route.min.1.2.0'],
-		ngSanitize : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-sanitize.min',
-					  '../lib/angular-sanitize.min.1.2.0'],
-		ngTouch    : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-touch.min',
-					  '../lib/angular-touch.min.1.2.0'],
+		angular    : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular.min',
+				      '../lib/angular.min.1.3.0-beta.8'],
+		ngAnimate  : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular-animate.min',
+				      '../lib/angular-animate.min.1.3.0-beta.8'],
+		ngCookies  : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular-cookies.min',
+				      '../lib/angular-cookies.min.1.3.0-beta.8'],
+		ngResource : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular-resource.min',
+				      '../lib/angular-resource.min.1.3.0-beta.8'],
+		ngRoute    : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular-route.min',
+				      '../lib/angular-route.min.1.3.0-beta.8'],
+		ngSanitize : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular-sanitize.min',
+					  '../lib/angular-sanitize.min.1.3.0-beta.8'],
+		ngTouch    : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular-touch.min',
+					  '../lib/angular-touch.min.1.3.0-beta.8'],
 
         // From http://angular-ui.github.io/bootstrap/ 
         // --Boostrap 3 port is still incomplete
@@ -73,7 +73,7 @@ require(
 	// Dependencies from lib
 		'angular', 
 		'ngRoute',
-		'../lib/less.min.1.5.0',  
+		'../lib/less.min.1.7.0',  
 	// Angular directives/controllers/services
 		'app',
 		'core/viewHomeController',
