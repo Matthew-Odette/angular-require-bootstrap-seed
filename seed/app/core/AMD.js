@@ -4,23 +4,29 @@
 require.config({
 	baseUrl: 'app',
 	paths: {
-		jquery     :  ['https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min',
-				       '../lib/jquery.min.1.10.1'],
+		jquery     :  ['https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min',
+				       '../lib/jquery.min.1.11.1'],
 
-		angular    : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular.min',
-				      '../lib/angular.min.1.3.0-beta.8'],
-		ngAnimate  : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular-animate.min',
-				      '../lib/angular-animate.min.1.3.0-beta.8'],
-		ngCookies  : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular-cookies.min',
-				      '../lib/angular-cookies.min.1.3.0-beta.8'],
-		ngResource : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular-resource.min',
-				      '../lib/angular-resource.min.1.3.0-beta.8'],
-		ngRoute    : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular-route.min',
-				      '../lib/angular-route.min.1.3.0-beta.8'],
-		ngSanitize : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular-sanitize.min',
-					  '../lib/angular-sanitize.min.1.3.0-beta.8'],
+		angular    : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min',
+				      '../lib/angular.min.1.3.4'],
+		ngAnimate  : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular-animate.min',
+				      '../lib/angular-animate.min.1.3.4'],
+		ngAria	   : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular-aria.min',
+				      '../lib/angular-aria.min.1.3.4'],
+		ngCookies  : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular-cookies.min',
+				      '../lib/angular-cookies.min.1.3.4'],
+		ngMessages : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular-messages.min',
+				      '../lib/angular-messages.min.1.3.4'],
+		ngMocks    : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular-mocks',
+				      '../lib/angular-mocks.1.3.4'],
+		ngResource : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular-resource.min',
+				      '../lib/angular-resource.min.1.3.4'],
+		ngRoute    : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular-route.min',
+				      '../lib/angular-route.1.3.4'],
+		ngSanitize : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular-sanitize.min',
+					  '../lib/angular-sanitize.min.1.3.4'],
 		ngTouch    : ['https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular-touch.min',
-					  '../lib/angular-touch.min.1.3.0-beta.8'],
+					  '../lib/angular-touch.min.1.3.4'],
 
         // From http://angular-ui.github.io/bootstrap/ 
         // --Boostrap 3 port is still incomplete
@@ -40,8 +46,20 @@ require.config({
 			exports: 'ngAnimate',
 			deps: ['angular']
 		},
+		ngAria: {
+			exports: 'ngAria',
+			deps: ['angular']
+		},
 		ngCookies: {
 			exports: 'ngCookies',
+			deps: ['angular']
+		},
+		ngMessages: {
+			exports: 'ngMessages',
+			deps: ['angular']
+		},
+		ngMocks: {
+			exports: 'ngMocks',
 			deps: ['angular']
 		},
 		ngResource: {
